@@ -6,7 +6,13 @@
         "name": "serandives",
         "email": "serandives@gmail.com"
     },
-    "dependencies": {},
+    "dependencies": {
+        "component-builder": "1.1.7",
+        "rework": "0.10.2",
+        "rework-mixins": "1.0.3",
+        "css-whitespace": "0.0.4",
+        "string-to-js": "0.0.1"
+    },
     "repository": {
         "type": "git",
         "url": "git://github.com/serandules/build.git"
