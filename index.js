@@ -14,7 +14,7 @@ var Builder = require('component-builder'),
  */
 
 module.exports = function (req, res, next) {
-    if (env === 'production') {
+    if (env !== 'development') {
         return next();
     }
     var builder = new Builder('.');
