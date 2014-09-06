@@ -7,14 +7,15 @@ var Builder = require('component-builder'),
     rework = require('./rework'),
     fs = require('fs'),
     write = fs.writeFileSync,
-    env = process.env.NODE_ENV;
+    env = process.env.NODE_ENV,
+    built = false;
 
 /**
  * Component builder middleware.
  */
 
 module.exports = function (req, res, next) {
-    if (env !== 'development') {
+    if (env !== 'development' && built) {
         return next();
     }
     var builder = new Builder('.');
@@ -26,6 +27,7 @@ module.exports = function (req, res, next) {
         if (err) return next(err);
         write('public/app.js', res.require + res.js);
         write('public/app.css', res.css);
+        built = true;
         next();
     });
 };
