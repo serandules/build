@@ -7,10 +7,10 @@
         "email": "serandives@gmail.com"
     },
     "dependencies": {
-        "component-builder": "0.6.2",
-        "rework": "0.10.2",
-        "rework-mixins": "1.0.3",
-        "css-whitespace": "0.0.4",
+        "component-builder": "1.2.0",
+        "rework": "1.0.1",
+        "rework-mixins": "1.2.0",
+        "css-whitespace": "1.1.0",
         "string-to-js": "0.0.1"
     },
     "repository": {
