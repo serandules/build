@@ -9,7 +9,7 @@ var rework = require('rework')
   , props = require('./props')
   , path = require('path')
   , fs = require('fs')
-  , read = fs.readFileSync
+  , read = fs.readFileSync;
 
 /**
  * Vendors supported.

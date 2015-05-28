@@ -6,7 +6,7 @@
 var str2js = require('string-to-js')
   , path = require('path')
   , fs = require('fs')
-  , read = fs.readFileSync
+  , read = fs.readFileSync;
 
 /**
  * HTML template plugin used to convert
