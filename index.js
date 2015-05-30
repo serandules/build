@@ -1,33 +1,33 @@
-/**
- * Module dependencies.
- */
+var Build = require('component-build');
+var resolve = require('component-resolver');
+var fs = require('fs');
 
-var Builder = require('component-builder'),
-    templates = require('./templates'),
-    rework = require('./rework'),
-    fs = require('fs'),
-    write = fs.writeFileSync,
-    env = process.env.NODE_ENV,
-    built = false;
-
-/**
- * Component builder middleware.
- */
-
-module.exports = function (req, res, next) {
-    if (env === 'production' && built) {
-        return next();
-    }
-    var builder = new Builder('.');
-    builder.addLookup('app'); // TODO: shouldn't be necessary
-    builder.copyAssetsTo('public');
-    builder.use(rework);
-    builder.use(templates);
-    builder.build(function (err, res) {
-        if (err) return next(err);
-        write('public/app.js', res.require + res.js);
-        write('public/app.css', res.css);
-        built = true;
-        next();
+module.exports = function () {
+    var options = {
+        destination: 'public',
+        install: true
+    };
+    resolve(process.cwd(), options, function (err, tree) {
+        if (err) {
+            throw err;
+        }
+        var build = Build(tree, options);
+        build.scripts(function (err, js) {
+            if (err) {
+                throw err;
+            }
+            fs.writeFile('public/build.js', js);
+        });
+        build.styles(function (err, css) {
+            if (err) {
+                throw err;
+            }
+            fs.writeFile('public/build.css', css);
+        });
+        build.files(function (err) {
+            if (err) {
+                throw err;
+            }
+        });
     });
 };

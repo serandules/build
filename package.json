@@ -7,11 +7,8 @@
         "email": "serandives@gmail.com"
     },
     "dependencies": {
-        "component-builder": "1.2.0",
-        "rework": "1.0.1",
-        "rework-mixins": "1.2.0",
-        "css-whitespace": "1.1.0",
-        "string-to-js": "0.0.1",
+        "component-resolver": "1.*",
+        "component-build": "1.*",
         "logger": "serandules/logger#master"
     },
     "repository": {
