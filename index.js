@@ -5,7 +5,8 @@ var fs = require('fs');
 module.exports = function () {
     var options = {
         destination: 'public',
-        install: true
+        install: true,
+        verbose: true
     };
     resolve(process.cwd(), options, function (err, tree) {
         if (err) {
